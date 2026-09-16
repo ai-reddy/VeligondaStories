@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="VeligondaStories">
+  <defs>
+    <linearGradient id="drop" x1="24" y1="2" x2="24" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d7a83d" />
+      <stop offset="0.55" stop-color="#156f75" />
+      <stop offset="1" stop-color="#0c4b50" />
+    </linearGradient>
+  </defs>
+  <path d="M24 2C24 2 8 23 8 32.5C8 41.0604 15.1634 48 24 48C32.8366 48 40 41.0604 40 32.5C40 23 24 2 24 2Z" fill="url(#drop)" />
+  <path d="M16.5 32C16.5 27.5 19 23 22.5 19" stroke="rgba(255,255,255,0.55)" stroke-width="2.5" stroke-linecap="round" fill="none" />
+</svg>

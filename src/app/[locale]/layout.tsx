@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
     metadataBase: new URL(siteUrl),
     title,
     description: siteContent[locale].intro,
+    icons: { icon: "/logo.svg" },
     alternates: {
       canonical: `/${locale}`,
       languages: { en: "/en", te: "/te" },

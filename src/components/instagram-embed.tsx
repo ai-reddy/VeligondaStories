@@ -35,18 +35,22 @@ export function InstagramEmbed({ url }: { url: string }) {
     };
   }, [url]);
 
+  // Crop Instagram's own profile header (~60px) and cap the total height so
+  // each preview stays noticeably shorter than the default embed.
   return (
-    <div ref={containerRef} className="overflow-hidden rounded-2xl bg-white">
-      <blockquote
-        className="instagram-media"
-        data-instgrm-permalink={url}
-        data-instgrm-captioned={false}
-        style={{ margin: 0, width: "100%" }}
-      >
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          {url}
-        </a>
-      </blockquote>
+    <div ref={containerRef} className="overflow-hidden rounded-2xl bg-white" style={{ height: 480 }}>
+      <div style={{ transform: "translateY(-60px)" }}>
+        <blockquote
+          className="instagram-media"
+          data-instgrm-permalink={url}
+          data-instgrm-captioned={false}
+          style={{ margin: 0, width: "100%" }}
+        >
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            {url}
+          </a>
+        </blockquote>
+      </div>
     </div>
   );
 }

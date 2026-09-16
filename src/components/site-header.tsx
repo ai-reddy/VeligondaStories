@@ -20,9 +20,8 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
       </a>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
         <Link href={`/${locale}`} className="group flex items-center gap-3" aria-label="VeligondaStories home">
-          <span className="grid size-11 place-items-center rounded-full bg-river text-lg font-black text-white shadow-sm">
-            VS
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element -- static SVG, no optimization needed */}
+          <img src="/logo.svg" alt="" width={44} height={44} className="size-11" />
           <span>
             <span className="block text-lg font-black tracking-tight">VeligondaStories</span>
             <span className="hidden text-[11px] font-semibold text-muted sm:block">Every Village. Every Story. Every Record.</span>

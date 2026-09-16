@@ -6,7 +6,7 @@ export function isLocale(value: string): value is Locale {
   return locales.includes(value as Locale);
 }
 
-export const instagramReels = [
+export const instagramReels = normalizeInstagramReels([
   "https://www.instagram.com/reel/DdURhElzU6A/",
   "https://www.instagram.com/reel/DdTN2fyxrIM/",
   "https://www.instagram.com/reel/DccZoDrpsih/",
@@ -16,7 +16,23 @@ export const instagramReels = [
   "https://www.instagram.com/reel/Dc6c0zwThpg/",
   "https://www.instagram.com/reel/DcqwIv6yeFT/",
   "https://www.instagram.com/reel/DcrCPaKqaaH/",
-] as const;
+  // To add a new reel, paste its share link (with or without ?stkn=...) as another entry above.
+]);
+
+// Strips tracking params and dedupes by shortcode, so pasted share links always work.
+function normalizeInstagramReels(urls: string[]) {
+  const seen = new Set<string>();
+  const normalized: string[] = [];
+  for (const raw of urls) {
+    const match = raw.match(/instagram\.com\/(?:reel|p)\/([^/?]+)/i);
+    const shortcode = match?.[1];
+    if (!shortcode || seen.has(shortcode)) continue;
+    seen.add(shortcode);
+    normalized.push(`https://www.instagram.com/reel/${shortcode}/`);
+  }
+  return normalized;
+}
+
 
 export const siteContent = {
   en: {
