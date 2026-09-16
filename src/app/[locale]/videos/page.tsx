@@ -19,11 +19,11 @@ export default async function VideosPage({ params }: VideosPageProps) {
   if (!isLocale(locale)) notFound();
   const copy = locale === "te" ? {
     home: "హోమ్", eyebrow: "మీడియా ఆర్కైవ్", title: "వీడియోలు",
-    intro: "అందించిన ఎనిమిది గుండంచర్ల వీడియోలు. తేదీ, ఖచ్చితమైన స్థలం, సమ్మతి వివరాలు నిర్ధారణలో ఉన్నందున ప్రతి అంశం సామాజిక నివేదికగా గుర్తించబడింది.",
+    intro: "అందించిన తొమ్మిది గుండంచర్ల వీడియోలు. తేదీ, ఖచ్చితమైన స్థలం, సమ్మతి వివరాలు నిర్ధారణలో ఉన్నందున ప్రతి అంశం సామాజిక నివేదికగా గుర్తించబడింది.",
     gallery: "గుండంచర్ల గ్యాలరీ",
   } : {
     home: "Home", eyebrow: "Media archive", title: "Videos",
-    intro: "All eight supplied Gundancharla videos. Each remains labelled as a community report while date, precise location and consent details are confirmed.",
+    intro: "All nine supplied Gundancharla videos. Each remains labelled as a community report while date, precise location and consent details are confirmed.",
     gallery: "Gundancharla gallery",
   };
 

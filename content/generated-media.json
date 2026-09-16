@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T11:51:11.471Z",
+  "generatedAt": "2026-09-16T13:22:35.668Z",
   "photos": [
     {
       "source": "photos/shared image (1).jfif",
@@ -708,7 +708,7 @@
   ],
   "videos": [
     {
-      "source": "videos/MicrosoftTeams-video (1).mp4",
+      "source": "videos/Gundamcharla Village drone view.mp4",
       "slug": "gundancharla-video-01",
       "village": "gundancharla",
       "titleEn": "Gundancharla archive video 01",
@@ -719,10 +719,10 @@
       "capturedAt": null,
       "src": "/media/videos/gundancharla-video-01.mp4",
       "poster": "/media/videos/gundancharla-video-01-poster.webp",
-      "sourceSha256": "53bc3b2566e1b5f5c52b4aad37d3078768ec08f8a48653ae8b0f336186ce2697"
+      "sourceSha256": "f05d539909e57e4eeb249be12131a0f32fc934f6bf017fdf0908ec45ecdd98c6"
     },
     {
-      "source": "videos/MicrosoftTeams-video (2).mp4",
+      "source": "videos/MicrosoftTeams-video (1).mp4",
       "slug": "gundancharla-video-02",
       "village": "gundancharla",
       "titleEn": "Gundancharla archive video 02",
@@ -733,10 +733,10 @@
       "capturedAt": null,
       "src": "/media/videos/gundancharla-video-02.mp4",
       "poster": "/media/videos/gundancharla-video-02-poster.webp",
-      "sourceSha256": "e4a0ca475b4c749e20fcb8602be95d8a110211de75f78c0bf4a0031f9bde882d"
+      "sourceSha256": "53bc3b2566e1b5f5c52b4aad37d3078768ec08f8a48653ae8b0f336186ce2697"
     },
     {
-      "source": "videos/MicrosoftTeams-video (3).mp4",
+      "source": "videos/MicrosoftTeams-video (2).mp4",
       "slug": "gundancharla-video-03",
       "village": "gundancharla",
       "titleEn": "Gundancharla archive video 03",
@@ -747,10 +747,10 @@
       "capturedAt": null,
       "src": "/media/videos/gundancharla-video-03.mp4",
       "poster": "/media/videos/gundancharla-video-03-poster.webp",
-      "sourceSha256": "07c5599a8200ff213fc7f7da7e0c1f040e91d37221e76f35bba7b176d403c376"
+      "sourceSha256": "e4a0ca475b4c749e20fcb8602be95d8a110211de75f78c0bf4a0031f9bde882d"
     },
     {
-      "source": "videos/MicrosoftTeams-video (4).mp4",
+      "source": "videos/MicrosoftTeams-video (3).mp4",
       "slug": "gundancharla-video-04",
       "village": "gundancharla",
       "titleEn": "Gundancharla archive video 04",
@@ -761,10 +761,10 @@
       "capturedAt": null,
       "src": "/media/videos/gundancharla-video-04.mp4",
       "poster": "/media/videos/gundancharla-video-04-poster.webp",
-      "sourceSha256": "c48cbecf2b3ae6c1542089f21b5accb48dac436b82799e8888da06fc2f34e8fd"
+      "sourceSha256": "07c5599a8200ff213fc7f7da7e0c1f040e91d37221e76f35bba7b176d403c376"
     },
     {
-      "source": "videos/MicrosoftTeams-video (5).mp4",
+      "source": "videos/MicrosoftTeams-video (4).mp4",
       "slug": "gundancharla-video-05",
       "village": "gundancharla",
       "titleEn": "Gundancharla archive video 05",
@@ -775,10 +775,10 @@
       "capturedAt": null,
       "src": "/media/videos/gundancharla-video-05.mp4",
       "poster": "/media/videos/gundancharla-video-05-poster.webp",
-      "sourceSha256": "838727e0ee6639a727544566de76e5c0523fbd7a631287aef5264e6194b88a96"
+      "sourceSha256": "c48cbecf2b3ae6c1542089f21b5accb48dac436b82799e8888da06fc2f34e8fd"
     },
     {
-      "source": "videos/MicrosoftTeams-video (6).mp4",
+      "source": "videos/MicrosoftTeams-video (5).mp4",
       "slug": "gundancharla-video-06",
       "village": "gundancharla",
       "titleEn": "Gundancharla archive video 06",
@@ -789,10 +789,10 @@
       "capturedAt": null,
       "src": "/media/videos/gundancharla-video-06.mp4",
       "poster": "/media/videos/gundancharla-video-06-poster.webp",
-      "sourceSha256": "815694266a45a4da9e68e0cc5fdb9d6f57fc9e46112326139763578113c59761"
+      "sourceSha256": "838727e0ee6639a727544566de76e5c0523fbd7a631287aef5264e6194b88a96"
     },
     {
-      "source": "videos/MicrosoftTeams-video (7).mp4",
+      "source": "videos/MicrosoftTeams-video (6).mp4",
       "slug": "gundancharla-video-07",
       "village": "gundancharla",
       "titleEn": "Gundancharla archive video 07",
@@ -803,10 +803,10 @@
       "capturedAt": null,
       "src": "/media/videos/gundancharla-video-07.mp4",
       "poster": "/media/videos/gundancharla-video-07-poster.webp",
-      "sourceSha256": "99d0c1df915004a0221cbe0b314c703bd722157f4df56fe2dee210f1d60c8677"
+      "sourceSha256": "815694266a45a4da9e68e0cc5fdb9d6f57fc9e46112326139763578113c59761"
     },
     {
-      "source": "videos/MicrosoftTeams-video.mp4",
+      "source": "videos/MicrosoftTeams-video (7).mp4",
       "slug": "gundancharla-video-08",
       "village": "gundancharla",
       "titleEn": "Gundancharla archive video 08",
@@ -817,6 +817,20 @@
       "capturedAt": null,
       "src": "/media/videos/gundancharla-video-08.mp4",
       "poster": "/media/videos/gundancharla-video-08-poster.webp",
+      "sourceSha256": "99d0c1df915004a0221cbe0b314c703bd722157f4df56fe2dee210f1d60c8677"
+    },
+    {
+      "source": "videos/MicrosoftTeams-video.mp4",
+      "slug": "gundancharla-video-09",
+      "village": "gundancharla",
+      "titleEn": "Gundancharla archive video 09",
+      "titleTe": "గుండంచర్ల ఆర్కైవ్ వీడియో 09",
+      "descriptionEn": "Community-submitted video. Date, location and participant consent details are pending confirmation.",
+      "descriptionTe": "సామాజికంగా సమర్పించిన వీడియో. తేదీ, స్థలం, పాల్గొన్న వారి సమ్మతి వివరాలు నిర్ధారణలో ఉన్నాయి.",
+      "verification": "community-report",
+      "capturedAt": null,
+      "src": "/media/videos/gundancharla-video-09.mp4",
+      "poster": "/media/videos/gundancharla-video-09-poster.webp",
       "sourceSha256": "160ab0dfbf045710d61da6919ec2e87eb9f1d9c780052fe33905a9eb3b152ebc"
     }
   ]
