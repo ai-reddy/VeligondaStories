@@ -6,6 +6,18 @@ export function isLocale(value: string): value is Locale {
   return locales.includes(value as Locale);
 }
 
+export const instagramReels = [
+  "https://www.instagram.com/reel/DdURhElzU6A/",
+  "https://www.instagram.com/reel/DdTN2fyxrIM/",
+  "https://www.instagram.com/reel/DccZoDrpsih/",
+  "https://www.instagram.com/reel/Dc_UlDQS5f1/",
+  "https://www.instagram.com/reel/DdL1rlLyoTF/",
+  "https://www.instagram.com/reel/Dcphpi7vcNs/",
+  "https://www.instagram.com/reel/Dc6c0zwThpg/",
+  "https://www.instagram.com/reel/DcqwIv6yeFT/",
+  "https://www.instagram.com/reel/DcrCPaKqaaH/",
+] as const;
+
 export const siteContent = {
   en: {
     skip: "Skip to main content",
@@ -73,6 +85,7 @@ export const siteContent = {
     privacy: "Privacy",
     corrections: "Corrections",
     status: "Foundation preview",
+    instagram: "Watch on Instagram",
   },
   te: {
     skip: "ప్రధాన విషయానికి వెళ్లండి",
@@ -140,5 +153,6 @@ export const siteContent = {
     privacy: "గోప్యత",
     corrections: "సవరణలు",
     status: "ప్రాథమిక నమూనా",
+    instagram: "ఇన్‌స్టాగ్రామ్‌లో చూడండి",
   },
 } as const;
