@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #17231f;
+  --muted: #5f6f68;
+  --paper: #f7f3e9;
+  --surface: #fffdf7;
+  --river: #156f75;
+  --river-dark: #0c4b50;
+  --earth: #a7562c;
+  --gold: #d7a83d;
+  --line: #ded7c8;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-river: var(--river);
+  --color-river-dark: var(--river-dark);
+  --color-earth: var(--earth);
+  --color-gold: var(--gold);
+  --color-line: var(--line);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Noto Sans Telugu", "Nirmala UI", Inter, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: #d7a83d66;
+}
+
+.documentary-grid {
+  background-image:
+    linear-gradient(rgba(247, 243, 233, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(247, 243, 233, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.eyebrow {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}

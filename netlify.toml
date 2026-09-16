@@ -1,0 +1,18 @@
+[build]
+command = "npm run build"
+
+[build.environment]
+NODE_VERSION = "22"
+NEXT_PUBLIC_SITE_URL = "https://veligondastories.netlify.app"
+PUBLIC_SUBMISSION_ORIGINS = "https://ai-reddy.github.io"
+
+[functions]
+node_bundler = "esbuild"
+
+[[headers]]
+for = "/*"
+[headers.values]
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+X-Frame-Options = "SAMEORIGIN"
+Permissions-Policy = "camera=(), microphone=(), geolocation=()"

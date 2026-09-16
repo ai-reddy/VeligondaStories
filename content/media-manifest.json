@@ -1,0 +1,114 @@
+{
+  "policy": {
+    "sourceDirectory": "src/assets/source-media",
+    "publicDirectory": "public/media",
+    "defaultSource": "Community submission",
+    "defaultCapturedAt": null,
+    "notes": "Original filenames and checksums are retained internally. Public derivatives omit source metadata. Publication requires rights, consent, date and source review."
+  },
+  "publicPhotos": [
+    {
+      "source": "photos/shared image (4).jfif",
+      "slug": "nallamala-sagar-illumination",
+      "stage": "development",
+      "titleEn": "Reservoir structure illuminated at night",
+      "titleTe": "రాత్రివేళ వెలుగుల్లో జలాశయ నిర్మాణం",
+      "altEn": "A large reservoir structure illuminated in blue and red at night",
+      "altTe": "రాత్రివేళ నీలం, ఎరుపు వెలుగుల్లో కనిపిస్తున్న పెద్ద జలాశయ నిర్మాణం",
+      "verification": "community-report",
+      "capturedAt": null
+    },
+    {
+      "source": "photos/shared image (6).jfif",
+      "slug": "cotton-field-landscape-one",
+      "stage": "before",
+      "titleEn": "Agricultural landscape",
+      "titleTe": "వ్యవసాయ భూభాగం",
+      "altEn": "Cotton field with low hills in the background",
+      "altTe": "వెనుక కొండలతో కనిపిస్తున్న పత్తి పొలం",
+      "verification": "community-report",
+      "capturedAt": null
+    },
+    {
+      "source": "photos/shared image (13).jfif",
+      "slug": "cotton-crop-field",
+      "stage": "livelihood",
+      "titleEn": "Cotton crop documented before relocation",
+      "titleTe": "తరలింపుకు ముందు నమోదు చేసిన పత్తి పంట",
+      "altEn": "Rows of mature cotton plants in an agricultural field",
+      "altTe": "వ్యవసాయ పొలంలో వరుసలుగా పెరిగిన పత్తి మొక్కలు",
+      "verification": "community-report",
+      "capturedAt": null
+    },
+    {
+      "source": "photos/shared image (27).jfif",
+      "slug": "partly-dismantled-house",
+      "stage": "transition",
+      "titleEn": "A house during dismantling",
+      "titleTe": "ఇల్లు తొలగిస్తున్న దశ",
+      "altEn": "A partly dismantled village house with exposed stone and brick walls",
+      "altTe": "రాయి, ఇటుక గోడలు కనిపిస్తున్న కొంతవరకు తొలగించిన గ్రామ ఇల్లు",
+      "verification": "community-report",
+      "capturedAt": null
+    },
+    {
+      "source": "photos/shared image (39).jfif",
+      "slug": "field-with-materials",
+      "stage": "transition",
+      "titleEn": "Cultivation and transition",
+      "titleTe": "సాగు మరియు మార్పు దశ",
+      "altEn": "Cotton field with bundled construction materials between crop rows",
+      "altTe": "పత్తి మొక్కల మధ్య కట్టలుగా ఉంచిన నిర్మాణ సామగ్రి",
+      "verification": "community-report",
+      "capturedAt": null
+    },
+    {
+      "source": "photos/shared image (40).jfif",
+      "slug": "village-house-after-dismantling",
+      "stage": "transition",
+      "titleEn": "Village home after dismantling began",
+      "titleTe": "తొలగింపు మొదలైన తర్వాత గ్రామ ఇల్లు",
+      "altEn": "Damaged village buildings and fallen tree branches after dismantling began",
+      "altTe": "తొలగింపు మొదలైన తర్వాత దెబ్బతిన్న గ్రామ భవనాలు, పడిపోయిన చెట్టు కొమ్మలు",
+      "verification": "community-report",
+      "capturedAt": null
+    },
+    {
+      "source": "photos/shared image (41).jfif",
+      "slug": "quiet-village-lane",
+      "stage": "transition",
+      "titleEn": "A village lane during transition",
+      "titleTe": "మార్పు దశలో గ్రామ వీధి",
+      "altEn": "A quiet village lane bordered by old walls, trees and dismantled branches",
+      "altTe": "పాత గోడలు, చెట్లు, తొలగించిన కొమ్మల మధ్య నిశ్శబ్ద గ్రామ వీధి",
+      "verification": "community-report",
+      "capturedAt": null
+    }
+  ],
+  "reviewGroups": [
+    {
+      "reason": "Published as supplied; identifiable people or children still require consent/redaction confirmation",
+      "files": ["photos/shared image (14).jfif", "photos/shared image (19).jfif", "photos/shared image (42).jfif", "photos/shared image (43).jfif", "photos/shared image (44).jfif", "videos/MicrosoftTeams-video (1).mp4", "videos/MicrosoftTeams-video (2).mp4", "videos/MicrosoftTeams-video (3).mp4", "videos/MicrosoftTeams-video (4).mp4", "videos/MicrosoftTeams-video (6).mp4", "videos/MicrosoftTeams-video (7).mp4", "videos/MicrosoftTeams-video.mp4"]
+    },
+    {
+      "reason": "Published as supplied; full privacy and consent review remains pending",
+      "files": ["videos/MicrosoftTeams-video (5).mp4"]
+    },
+    {
+      "reason": "Signed representation; signatures and personal data require redaction",
+      "files": ["documents/Collector representation for relocation arrengements.pdf"]
+    },
+    {
+      "reason": "Published as a community-submitted media reference; source URL and reuse rights remain pending",
+      "files": ["photos/shared image (3).jfif", "photos/shared image (5).jfif", "photos/shared image (9).jfif", "photos/shared image (10).jfif", "photos/shared image (11).jfif", "photos/shared image (12).jfif", "photos/shared image (16).jfif", "photos/shared image (17).jfif", "photos/shared image (18).jfif", "photos/shared image (22).jfif"]
+    },
+    {
+      "reason": "Published as a community-submitted graphic; creator, AI status, claims and rights review remain pending",
+      "files": ["photos/shared image.jfif", "photos/shared image (1).jfif", "photos/shared image (2).jfif", "photos/shared image (20).jfif", "photos/shared image (23).jfif", "photos/shared image (24).jfif", "photos/shared image (25).jfif", "photos/shared image (26).jfif", "photos/shared image (28).jfif", "photos/shared image (30).jfif", "photos/shared image (31).jfif", "photos/shared image (33).jfif", "photos/shared image (34).jfif", "photos/shared image (35).jfif", "photos/shared image (36).jfif", "photos/shared image (37).jfif", "photos/shared image (38).jfif"]
+    },
+    {
+      "reason": "Additional context, date or location confirmation required",
+      "files": ["photos/shared image (7).jfif", "photos/shared image (8).jfif", "photos/shared image (15).jfif", "photos/shared image (21).jfif", "photos/shared image (29).jfif", "photos/shared image (32).jfif"]
+    }
+  ]
+}
