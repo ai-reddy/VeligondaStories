@@ -9,6 +9,9 @@ PUBLIC_SUBMISSION_ORIGINS = "https://ai-reddy.github.io"
 [functions]
 node_bundler = "esbuild"
 
+[[plugins]]
+package = "@netlify/plugin-nextjs"
+
 [[headers]]
 for = "/*"
 [headers.values]
