@@ -20,5 +20,19 @@
     "submittedAt": "2026-09-16T12:30:18.294Z",
     "status": "community-report",
     "media": []
+  },
+  {
+    "id": "21fa6d0b-1746-4940-8016-5666c76633bc",
+    "title": "Instagram source",
+    "content": "This is a social media source update with a public Instagram share link.",
+    "village": "project-wide",
+    "category": "ground-reality",
+    "eventDate": "2026-09-17",
+    "submittedAt": "2026-09-17T11:11:29.678Z",
+    "status": "community-report",
+    "media": [],
+    "socialLinks": [
+      "https://www.instagram.com/reel/DdURhElzU6A/"
+    ]
   }
 ]

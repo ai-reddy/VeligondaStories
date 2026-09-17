@@ -41,6 +41,7 @@ export default async function JourneyPage({ params }: JourneyPageProps) {
             <aside className="mt-10 rounded-2xl border border-gold/30 bg-gold/10 p-5 text-sm leading-7 text-white/80">
               <strong className="text-gold">{labels.notice}:</strong> {content.sourceNotice}
             </aside>
+            <p className="mt-5 max-w-3xl border-l-2 border-earth pl-4 text-sm leading-7 text-white/65">{content.realityNote}</p>
           </div>
         </header>
 

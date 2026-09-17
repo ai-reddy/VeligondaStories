@@ -64,17 +64,19 @@ const telugu: JourneyStage[] = [
   { number: 25, title: "కొనసాగుతున్న కథ", summary: "మౌలిక వసతులతో పాటు కుటుంబాలు ఎంత భద్రంగా, గౌరవంగా కొత్త జీవితం నిర్మించుకున్నాయన్నదీ విజయానికి కొలమానం.", classification: "editorial-framework", mediaSlug: "village-house-after-dismantling" },
 ];
 
-export const journeyContent: Record<Locale, { title: string; intro: string; sourceNotice: string; stages: JourneyStage[] }> = {
+export const journeyContent: Record<Locale, { title: string; intro: string; sourceNotice: string; realityNote: string; stages: JourneyStage[] }> = {
   en: {
     title: "The displacement journey",
-    intro: "A chronological framework connecting the development promise, village transition, rehabilitation and life after relocation.",
-    sourceNotice: "Documentation draft · Based on supplied community material and referenced public reporting. Original source URLs and publication records are still being attached; reported claims are not independently verified by VeligondaStories.",
+    intro: "This is not a polished success story. It is a working record of water infrastructure alongside homes left behind, hurried movement, unfinished rehabilitation and the questions families still report.",
+    sourceNotice: "Source boundary · Built from the supplied English/Telugu journey documents, the project source register and dated media references named there. Reported figures and community accounts remain dated claims until the underlying record is attached.",
+    realityNote: "Read each stage as a record, not a conclusion: project milestones describe infrastructure; community-report stages describe what people said or what supplied media shows; missing evidence is marked instead of filled with optimistic language.",
     stages: english,
   },
   te: {
     title: "నిర్వాసిత గ్రామాల ప్రయాణం",
-    intro: "అభివృద్ధి లక్ష్యం నుంచి గ్రామాల మార్పు, పునరావాసం, తరలింపు తర్వాతి జీవితం వరకు అనుసంధానించే కాలక్రమం.",
-    sourceNotice: "డాక్యుమెంటేషన్ ముసాయిదా · అందించిన సామాజిక సమాచారం, ప్రస్తావించిన ప్రజా నివేదికల ఆధారంగా రూపొందించబడింది. అసలు మూల లింకులు, ప్రచురణ రికార్డులు ఇంకా జతచేయాల్సి ఉంది; నివేదించిన వాదనలను VeligondaStories స్వతంత్రంగా ధృవీకరించలేదు.",
+    intro: "ఇది మెరుగుపరిచిన విజయకథ కాదు. నీటి మౌలిక వసతులతో పాటు వదిలిన ఇళ్లు, తొందరపాటు తరలింపు, అసంపూర్తి పునరావాసం, ప్రజలు ఇంకా చెబుతున్న ప్రశ్నల పని ఆర్కైవ్.",
+    sourceNotice: "మూలాల పరిమితి · అందించిన తెలుగు/ఇంగ్లీష్ ప్రయాణ పత్రాలు, ప్రాజెక్టు మూలాల రిజిస్టర్, అందులో పేర్కొన్న తేదీతో కూడిన మీడియా ఆధారాలపై నిర్మించబడింది. అసలు పత్రం జతచేసే వరకు సంఖ్యలు, ప్రజల నివేదికలు తేదీతో కూడిన వాదనలుగానే ఉంటాయి.",
+    realityNote: "ప్రతి దశను తుది తీర్పుగా కాకుండా రికార్డుగా చదవండి: ప్రాజెక్టు మైలురాళ్లు మౌలిక వసతులను, సామాజిక నివేదిక దశలు ప్రజలు చెప్పినది లేదా అందించిన మీడియాను చూపిస్తాయి. ఆధారం లేని చోట ఆశావాద భాషతో నింపము.",
     stages: telugu,
   },
 };

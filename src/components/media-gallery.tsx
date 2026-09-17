@@ -56,8 +56,10 @@ export function SubmissionUpdates({ locale, submissions }: { locale: Locale; sub
             {submission.media.length ? <div className="grid grid-cols-2 gap-px bg-line">
               {submission.media.map((media) => media.kind === "image" ? (
                 <a key={media.id} href={publicAssetUrl(media.src)} target="_blank" rel="noopener noreferrer" className="relative block aspect-4/3 bg-line"><Image src={publicAssetUrl(media.src)} alt="" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" /></a>
-              ) : (
+              ) : media.kind === "video" ? (
                 <video key={media.id} controls preload="metadata" className="aspect-4/3 w-full bg-ink"><source src={publicAssetUrl(media.src)} type="video/mp4" /></video>
+              ) : (
+                <a key={media.id} href={publicAssetUrl(media.src)} target="_blank" rel="noopener noreferrer" className="flex aspect-4/3 items-center justify-center bg-paper p-5 text-center text-sm font-black text-river hover:bg-river/10">{locale === "te" ? "పత్రాన్ని చూడండి" : "View submitted document"}</a>
               ))}
             </div> : null}
             <div className="p-6">

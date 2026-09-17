@@ -10,7 +10,8 @@ export const runtime = "nodejs";
 const MAX_FILES = 6;
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 const MAX_VIDEO_BYTES = 5 * 1024 * 1024;
-const MAX_TOTAL_BYTES = 5 * 1024 * 1024;
+const MAX_DOCUMENT_BYTES = 10 * 1024 * 1024;
+const MAX_TOTAL_BYTES = 10 * 1024 * 1024;
 const MAX_SOCIAL_LINKS = 5;
 const categories = new Set(["ground-reality", "rehabilitation", "development", "document-update", "village-story", "other"]);
 const attempts = new Map<string, number[]>();
@@ -29,22 +30,31 @@ export async function POST(request: Request) {
     enforceRateLimit(request);
     const form = await request.formData();
     if (String(form.get("website") ?? "")) throw new SubmissionError("The update could not be submitted.");
-    const title = text(form, "title", 3, 160);
-    const content = text(form, "content", 10, 5000);
-    const villageValue = String(form.get("village") ?? "");
+    const submissionMode = String(form.get("submissionMode") ?? "community");
+    const villageValue = normalizeVillage(String(form.get("village") ?? ""));
     const category = String(form.get("category") ?? "");
     const eventDateValue = String(form.get("eventDate") ?? "").trim();
     const rightsConfirmed = form.get("rightsConfirmed") === "on";
     const socialLinks = parseSocialLinks(String(form.get("socialLinks") ?? ""));
+    const title = submissionMode === "social"
+      ? text(form, "title", 0, 160, true)
+      : text(form, "title", 3, 160);
+    const content = submissionMode === "social"
+      ? text(form, "content", 0, 5000, true)
+      : text(form, "content", 10, 5000);
 
-    if (villageValue !== "gundancharla" && villageValue !== "project-wide") throw new SubmissionError("Select a valid location.");
+    if (submissionMode === "social" && socialLinks.length === 0) throw new SubmissionError("Add a public social media link.");
     if (!categories.has(category)) throw new SubmissionError("Select a valid category.");
     if (eventDateValue && !/^\d{4}-\d{2}-\d{2}$/.test(eventDateValue)) throw new SubmissionError("Enter a valid event date.");
 
     const files = form.getAll("media").filter((value): value is File => value instanceof File && value.size > 0);
+    if (submissionMode === "social" && files.length > 0) throw new SubmissionError("Social posts do not require uploaded media.");
     if (files.length > MAX_FILES) throw new SubmissionError(`Upload no more than ${MAX_FILES} files.`);
     if (files.length && !rightsConfirmed) throw new SubmissionError("Confirm that the submitted media may be archived and reviewed for publication.");
     if (files.reduce((total, file) => total + file.size, 0) > MAX_TOTAL_BYTES) throw new SubmissionError("The total upload exceeds 5 MB.");
+
+    const titleValue = title || (submissionMode === "social" ? "Social media source" : "Community update");
+    const contentValue = content || (submissionMode === "social" ? socialLinks[0] : "Community update.");
 
     const submissionId = createSubmissionId();
     const uploadDirectory = path.join(process.cwd(), "public", "media", "uploads", submissionId);
@@ -54,6 +64,14 @@ export async function POST(request: Request) {
     for (const file of files) {
       const bytes = Buffer.from(await file.arrayBuffer());
       const mediaId = randomUUID();
+
+      if (file.type === "application/pdf") {
+        if (file.size > MAX_DOCUMENT_BYTES) throw new SubmissionError(`${file.name} exceeds the 10 MB document limit.`);
+        if (bytes.length < 5 || bytes.subarray(0, 5).toString("ascii") !== "%PDF-") throw new SubmissionError(`${file.name} is not a valid PDF file.`);
+        const src = await saveMedia(submissionId, mediaId, "pdf", bytes, "application/pdf", uploadDirectory, createdFiles);
+        media.push({ id: mediaId, kind: "document", src });
+        continue;
+      }
 
       if (file.type.startsWith("image/")) {
         if (file.size > MAX_IMAGE_BYTES) throw new SubmissionError(`${file.name} exceeds the 5 MB image limit.`);
@@ -75,13 +93,13 @@ export async function POST(request: Request) {
         continue;
       }
 
-      throw new SubmissionError(`${file.name} is not a supported image or MP4 video.`);
+      throw new SubmissionError(`${file.name} is not a supported PDF, image or MP4 video.`);
     }
 
     const submission: PublishedSubmission = {
       id: submissionId,
-      title,
-      content,
+      title: titleValue,
+      content: contentValue,
       village: villageValue,
       category,
       eventDate: eventDateValue || null,
@@ -100,10 +118,27 @@ export async function POST(request: Request) {
   }
 }
 
-function text(form: FormData, key: string, minimum: number, maximum: number) {
+function text(form: FormData, key: string, minimum: number, maximum: number, optional = false) {
   const value = String(form.get(key) ?? "").trim();
+  if (optional && value === "") return "";
   if (value.length < minimum || value.length > maximum) throw new SubmissionError(`${key} must be between ${minimum} and ${maximum} characters.`);
   return value;
+}
+
+function normalizeVillage(value: string): PublishedSubmission["village"] {
+  const normalized = value.trim().toLowerCase();
+  const mapping: Record<string, PublishedSubmission["village"]> = {
+    gundancharla: "gundancharla",
+    gundamcharla: "gundancharla",
+    kalanuthala: "kalanuthala",
+    sukesula: "sukesula",
+    gottepadiya: "gottepadiya",
+    "project-wide": "project-wide",
+    projectwide: "project-wide",
+  };
+  const mapped = mapping[normalized];
+  if (!mapped) throw new SubmissionError("Select a valid location.");
+  return mapped;
 }
 
 function parseSocialLinks(value: string) {

@@ -6,9 +6,11 @@ const root = process.cwd();
 const apiDirectory = path.join(root, "src", "app", "api");
 const backupDirectory = path.join(root, ".github-pages-api-backup");
 const outDirectory = path.join(root, "out");
+const nextDirectory = path.join(root, ".next");
 
 await rm(backupDirectory, { recursive: true, force: true });
 await rm(outDirectory, { recursive: true, force: true });
+await rm(nextDirectory, { recursive: true, force: true });
 await rename(apiDirectory, backupDirectory);
 
 try {

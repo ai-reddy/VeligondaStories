@@ -6,7 +6,7 @@ import curatedGcUpdates from "../../content/gc-live-status-updates.json";
 
 export type SubmissionMedia = {
   id: string;
-  kind: "image" | "video";
+  kind: "image" | "video" | "document";
   src: string;
   width?: number;
   height?: number;
@@ -16,7 +16,7 @@ export type PublishedSubmission = {
   id: string;
   title: string;
   content: string;
-  village: "gundancharla" | "project-wide";
+  village: "gundancharla" | "project-wide" | "kalanuthala" | "sukesula" | "gottepadiya";
   category: string;
   eventDate: string | null;
   submittedAt: string;
