@@ -14,13 +14,15 @@ type LightboxPhoto = {
   altTe: string;
   width: number;
   height: number;
+  verification?: string;
+  capturedAt?: string | null;
 };
 
 export function PhotoLightbox({ locale, photos }: { locale: Locale; photos: LightboxPhoto[] }) {
   const [selected, setSelected] = useState<LightboxPhoto | null>(null);
   const labels = locale === "te"
-    ? { open: "పూర్తి చిత్రాన్ని చూడండి", close: "మూసివేయండి", original: "పూర్తి పరిమాణంలో తెరవండి", source: "మూలం: సామాజిక సమర్పణ", status: "ధృవీకరణలో ఉంది", date: "తేదీ నిర్ధారణలో ఉంది" }
-    : { open: "View full image", close: "Close", original: "Open full-size file", source: "Source: Community submission", status: "Verification pending", date: "Date pending confirmation" };
+    ? { open: "పూర్తి చిత్రాన్ని చూడండి", close: "మూసివేయండి", original: "పూర్తి పరిమాణంలో తెరవండి", source: "మూలం: సామాజిక సమర్పణ", pending: "ధృవీకరణలో ఉంది", verified: "ధృవీకరించిన గ్రామ చిత్రం", date: "తేదీ నిర్ధారణలో ఉంది" }
+    : { open: "View full image", close: "Close", original: "Open full-size file", source: "Source: Community submission", pending: "Verification pending", verified: "Verified village image", date: "Date pending confirmation" };
 
   useEffect(() => {
     if (!selected) return;
@@ -42,7 +44,7 @@ export function PhotoLightbox({ locale, photos }: { locale: Locale; photos: Ligh
             <figcaption className="p-5">
               <p className="text-lg font-black">{locale === "te" ? photo.titleTe : photo.titleEn}</p>
               <div className="mt-4 flex flex-wrap gap-2 text-[11px] font-bold text-muted">
-                <span className="rounded-full bg-paper px-3 py-1">{labels.source}</span><span className="rounded-full bg-gold/15 px-3 py-1">{labels.status}</span><span className="rounded-full bg-paper px-3 py-1">{labels.date}</span>
+                <span className="rounded-full bg-paper px-3 py-1">{labels.source}</span><span className="rounded-full bg-gold/15 px-3 py-1">{photo.verification === "field-verified" ? labels.verified : labels.pending}</span><span className="rounded-full bg-paper px-3 py-1">{photo.capturedAt ?? labels.date}</span>
               </div>
             </figcaption>
           </figure>

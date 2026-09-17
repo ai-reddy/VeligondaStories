@@ -17,9 +17,15 @@ If documents conflict, `site-plan.md` takes precedence.
 
 The first public archive slice is implemented with Telugu/English homepages,
 a 25-stage displacement journey, a reviewed photograph gallery, evidence and
-video-review pages, SEO metadata, crawl controls, and a privacy-safe media
-processing workflow. Database-backed editorial administration remains a later
-phase.
+video-review pages, a durable community-submission feed with social-media source
+links, SEO metadata, crawl controls, and a privacy-safe media processing
+workflow. Database-backed editorial administration remains a later phase.
+
+Latest published updates are available at `/en/updates` and `/te/updates` on
+the authoritative Netlify deployment. Submission records and uploaded media are
+stored in named Netlify Blob stores, so application redeployments do not replace
+or erase them. See [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) before changing the
+production site or its storage.
 
 ## Local development
 

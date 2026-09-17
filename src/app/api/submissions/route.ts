@@ -11,6 +11,7 @@ const MAX_FILES = 6;
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 const MAX_VIDEO_BYTES = 5 * 1024 * 1024;
 const MAX_TOTAL_BYTES = 5 * 1024 * 1024;
+const MAX_SOCIAL_LINKS = 5;
 const categories = new Set(["ground-reality", "rehabilitation", "development", "document-update", "village-story", "other"]);
 const attempts = new Map<string, number[]>();
 
@@ -34,6 +35,7 @@ export async function POST(request: Request) {
     const category = String(form.get("category") ?? "");
     const eventDateValue = String(form.get("eventDate") ?? "").trim();
     const rightsConfirmed = form.get("rightsConfirmed") === "on";
+    const socialLinks = parseSocialLinks(String(form.get("socialLinks") ?? ""));
 
     if (villageValue !== "gundancharla" && villageValue !== "project-wide") throw new SubmissionError("Select a valid location.");
     if (!categories.has(category)) throw new SubmissionError("Select a valid category.");
@@ -46,7 +48,7 @@ export async function POST(request: Request) {
 
     const submissionId = createSubmissionId();
     const uploadDirectory = path.join(process.cwd(), "public", "media", "uploads", submissionId);
-    await mkdir(uploadDirectory, { recursive: true });
+    if (!isNetlifyRuntime()) await mkdir(uploadDirectory, { recursive: true });
     const media: SubmissionMedia[] = [];
 
     for (const file of files) {
@@ -86,6 +88,7 @@ export async function POST(request: Request) {
       submittedAt: new Date().toISOString(),
       status: "community-report",
       media,
+      socialLinks,
     };
 
     await publishSubmission(submission);
@@ -103,12 +106,42 @@ function text(form: FormData, key: string, minimum: number, maximum: number) {
   return value;
 }
 
+function parseSocialLinks(value: string) {
+  const links = value.split(/[\r\n,]+/).map((link) => link.trim()).filter(Boolean);
+  if (links.length > MAX_SOCIAL_LINKS) throw new SubmissionError(`Add no more than ${MAX_SOCIAL_LINKS} social media links.`);
+
+  const normalized = links.map((link) => {
+    let url: URL;
+    try {
+      url = new URL(link);
+    } catch {
+      throw new SubmissionError("Enter complete social links beginning with https://.");
+    }
+
+    if (url.protocol !== "https:") throw new SubmissionError("Social links must use https://.");
+    const host = url.hostname.toLowerCase().replace(/^www\./, "");
+    const supportedHosts = ["instagram.com", "facebook.com", "fb.watch", "youtube.com", "youtu.be", "x.com", "twitter.com"];
+    if (!supportedHosts.some((supported) => host === supported || host.endsWith(`.${supported}`))) {
+      throw new SubmissionError("Use a public Instagram, Facebook, YouTube, X or Twitter link.");
+    }
+
+    url.hash = "";
+    for (const parameter of [...url.searchParams.keys()]) {
+      if (parameter.startsWith("utm_") || ["igsh", "igshid", "stkn", "feature", "si"].includes(parameter)) url.searchParams.delete(parameter);
+    }
+    return url.toString();
+  });
+
+  return [...new Set(normalized)];
+}
+
 class SubmissionError extends Error {}
 
 async function saveMedia(submissionId: string, mediaId: string, extension: string, bytes: Buffer, contentType: string, uploadDirectory: string, createdFiles: string[]) {
   if (isNetlifyRuntime()) {
     const key = `${submissionId}/${mediaId}.${extension}`;
-    await getStore("veligonda-media").set(key, Uint8Array.from(bytes).buffer, { metadata: { contentType }, onlyIfNew: true });
+    const result = await getStore("veligonda-media").set(key, Uint8Array.from(bytes).buffer, { metadata: { contentType }, onlyIfNew: true });
+    if (!result.modified) throw new Error("A media file with this ID already exists.");
     return `/api/media/${key}`;
   }
 

@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { getStore } from "@netlify/blobs";
+import curatedGcUpdates from "../../content/gc-live-status-updates.json";
 
 export type SubmissionMedia = {
   id: string;
@@ -21,6 +22,7 @@ export type PublishedSubmission = {
   submittedAt: string;
   status: "community-report";
   media: SubmissionMedia[];
+  socialLinks?: string[];
 };
 
 const dataDirectory = path.join(process.cwd(), "data");
@@ -30,7 +32,9 @@ let writeQueue = Promise.resolve();
 export async function getPublishedSubmissions(village?: PublishedSubmission["village"]): Promise<PublishedSubmission[]> {
   const seedSubmissions = await readSubmissions();
   const netlifySubmissions = await readNetlifySubmissions();
-  const submissions = [...seedSubmissions, ...netlifySubmissions.filter((remote) => !seedSubmissions.some((seed) => seed.id === remote.id))];
+  const curatedSubmissions = curatedGcUpdates as PublishedSubmission[];
+  const submissions = [...curatedSubmissions, ...seedSubmissions, ...netlifySubmissions]
+    .filter((submission, index, values) => values.findIndex((candidate) => candidate.id === submission.id) === index);
   return submissions
     .filter((submission) => !village || submission.village === village)
     .sort((left, right) => right.submittedAt.localeCompare(left.submittedAt));
@@ -42,7 +46,8 @@ export function createSubmissionId() {
 
 export async function publishSubmission(submission: PublishedSubmission) {
   if (isNetlifyRuntime()) {
-    await getStore({ name: "veligonda-submissions", consistency: "strong" }).setJSON(`submissions/${submission.id}.json`, submission, { onlyIfNew: true });
+    const result = await getStore({ name: "veligonda-submissions", consistency: "strong" }).setJSON(`submissions/${submission.id}.json`, submission, { onlyIfNew: true });
+    if (!result.modified) throw new Error("A submission with this ID already exists.");
     return;
   }
 
@@ -60,7 +65,8 @@ export async function publishSubmission(submission: PublishedSubmission) {
 async function readNetlifySubmissions(): Promise<PublishedSubmission[]> {
   if (!isNetlifyRuntime()) return [];
   const store = getStore({ name: "veligonda-submissions", consistency: "strong" });
-  const { blobs } = await store.list({ prefix: "submissions/" });
+  const blobs = [];
+  for await (const page of store.list({ prefix: "submissions/", paginate: true })) blobs.push(...page.blobs);
   const values = await Promise.all(blobs.map((blob) => store.get(blob.key, { type: "json", consistency: "strong" })));
   return values.filter((value): value is PublishedSubmission => Boolean(value && typeof value === "object"));
 }

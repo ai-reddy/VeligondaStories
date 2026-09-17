@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/site-content";
 import { instagramReels, siteContent } from "@/lib/site-content";
-import { InstagramEmbed } from "@/components/instagram-embed";
+import { FooterSocialLinks } from "@/components/footer-social-links";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const content = siteContent[locale];
@@ -9,11 +9,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
     <footer id="submit" className="bg-ink text-white">
       <div className="mx-auto max-w-7xl px-5 pt-14 lg:px-8">
         <p className="mb-5 text-xs font-black uppercase tracking-widest text-white/50">{content.instagram}</p>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {instagramReels.map((url) => (
-            <InstagramEmbed key={url} url={url} />
-          ))}
-        </div>
+        <FooterSocialLinks locale={locale} initialLinks={instagramReels} />
       </div>
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 lg:grid-cols-[1.4fr_1fr] lg:px-8">
         <div>

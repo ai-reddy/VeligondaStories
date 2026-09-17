@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/site-content";
+import { liveUpdatesUrl, publicAssetUrl } from "@/lib/public-url";
 import { siteContent } from "@/lib/site-content";
 
 type SiteHeaderProps = {
@@ -21,7 +22,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
         <Link href={`/${locale}`} className="group flex items-center gap-3" aria-label="VeligondaStories home">
           {/* eslint-disable-next-line @next/next/no-img-element -- static SVG, no optimization needed */}
-          <img src="/logo.svg" alt="" width={44} height={44} className="size-11" />
+          <img src={publicAssetUrl("/logo.svg")} alt="" width={44} height={44} className="size-11" />
           <span>
             <span className="block text-lg font-black tracking-tight">VeligondaStories</span>
             <span className="hidden text-[11px] font-semibold text-muted sm:block">Every Village. Every Story. Every Record.</span>
@@ -29,9 +30,9 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
         </Link>
         <nav aria-label="Primary navigation" className="hidden items-center gap-6 lg:flex">
           {content.nav.map(([label, id]) => (
-            <a key={id} href={id === "gallery" || id === "evidence" ? `/${locale}/${id}` : `/${locale}#${id}`} className="text-sm font-semibold text-muted transition hover:text-river">
+            <Link key={id} href={id === "updates" ? liveUpdatesUrl(locale) : id === "gallery" || id === "evidence" ? `/${locale}/${id}` : `/${locale}#${id}`} className="text-sm font-semibold text-muted transition hover:text-river">
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="flex items-center gap-2">
