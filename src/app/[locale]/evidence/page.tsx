@@ -70,7 +70,10 @@ export default async function EvidencePage({ params }: EvidencePageProps) {
               <div className="rounded-2xl bg-paper p-5"><dt className="font-black">{copy.available}</dt><dd className="mt-2 text-sm leading-6 text-muted">{copy.availableText}</dd></div>
               <div className="rounded-2xl bg-paper p-5"><dt className="font-black">{copy.next}</dt><dd className="mt-2 text-sm leading-6 text-muted">{copy.nextText}</dd></div>
             </dl>
-            <Link href={`/${locale}/submit`} className="mt-7 inline-flex rounded-full bg-river px-5 py-3 font-black text-white">{copy.submit}</Link>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href={`/${locale}/claims-and-evidence`} className="inline-flex rounded-full bg-river px-5 py-3 font-black text-white">{locale === "te" ? "వాదనలు మరియు ఆధారాలు" : "Claims and evidence"}</Link>
+              <Link href={`/${locale}/submit`} className="inline-flex rounded-full border border-river px-5 py-3 font-black text-river">{copy.submit}</Link>
+            </div>
           </article>
         </section>
       </main>

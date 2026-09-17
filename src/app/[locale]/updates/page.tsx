@@ -23,14 +23,14 @@ export default async function UpdatesPage({ params }: UpdatesPageProps) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   if (process.env.GITHUB_PAGES !== "true") await connection();
-  const submissions = await getPublishedSubmissions("project-wide");
+  const submissions = await getPublishedSubmissions();
   const copy = locale === "te"
     ? { home: "హోమ్", eyebrow: "సజీవ ప్రజా ఆర్కైవ్", title: "తాజా వెలిగొండ అప్‌డేట్‌లు", intro: "కొత్తగా సమర్పించిన నివేదికలు, సోషల్ మీడియా మూలాలు, ఫోటోలు మరియు వీడియోలను తేదీ క్రమంలో ఇక్కడ చూడవచ్చు.", empty: "ఇంకా సామాజిక అప్‌డేట్‌లు ప్రచురించబడలేదు.", submit: "కొత్త అప్‌డేట్ ప్రచురించండి" }
     : { home: "Home", eyebrow: "Living public archive", title: "Latest Veligonda updates", intro: "Track newly submitted reports, social media sources, photographs and videos here in date order.", empty: "No community updates have been published yet.", submit: "Publish a new update" };
 
   return (
     <>
-      <SiteHeader locale={locale} />
+      <SiteHeader locale={locale} currentPath="/updates" />
       <main id="main-content">
         <header className="bg-river-dark text-white"><div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
           <Link href={`/${locale}`} className="text-sm font-bold text-gold">← {copy.home}</Link>

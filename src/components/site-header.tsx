@@ -5,9 +5,10 @@ import { siteContent } from "@/lib/site-content";
 
 type SiteHeaderProps = {
   locale: Locale;
+  currentPath?: string;
 };
 
-export function SiteHeader({ locale }: SiteHeaderProps) {
+export function SiteHeader({ locale, currentPath = "" }: SiteHeaderProps) {
   const content = siteContent[locale];
   const otherLocale = locale === "te" ? "en" : "te";
 
@@ -37,7 +38,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
         </nav>
         <div className="flex items-center gap-2">
           <Link
-            href={`/${otherLocale}`}
+            href={`/${otherLocale}${currentPath}`}
             hrefLang={otherLocale}
             aria-label={content.languageLabel}
             className="rounded-full border border-line bg-white px-3 py-2 text-sm font-bold transition hover:border-river hover:text-river"
@@ -49,6 +50,15 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           </Link>
         </div>
       </div>
+
+      <Link
+        href={`/${locale}/submit`}
+        className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 rounded-full bg-earth px-4 py-3 text-sm font-black text-white shadow-lg shadow-earth/30 transition hover:bg-ink sm:hidden"
+        aria-label={locale === "te" ? "కొత్త అప్‌డేట్ జోడించండి" : "Add a new post"}
+      >
+        <span className="text-lg leading-none">＋</span>
+        <span>{locale === "te" ? "అప్‌డేట్" : "Add post"}</span>
+      </Link>
     </header>
   );
 }

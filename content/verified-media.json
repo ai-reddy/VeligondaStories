@@ -49,20 +49,5 @@
       "sourceSha256": "a4ff8fa41759e0a38028135755b13aac2a6f6744e161517c2b9634c52e9b9407"
     }
   ],
-  "videos": [
-    {
-      "source": "User-supplied village video",
-      "slug": "gundancharla-video-10",
-      "village": "gundancharla",
-      "titleEn": "Gundancharla current-status video",
-      "titleTe": "గుండంచర్ల ప్రస్తుత స్థితి వీడియో",
-      "descriptionEn": "User-supplied village video retained as a community report. Capture date and participant consent details remain pending confirmation.",
-      "descriptionTe": "వినియోగదారు అందించిన గ్రామ వీడియోను సామాజిక నివేదికగా భద్రపరిచాం. చిత్రీకరణ తేదీ మరియు పాల్గొన్న వారి సమ్మతి వివరాలు నిర్ధారణలో ఉన్నాయి.",
-      "verification": "community-report",
-      "capturedAt": null,
-      "src": "/media/videos/gundancharla-video-10.mp4",
-      "poster": "/media/videos/gundancharla-video-10-poster.webp",
-      "sourceSha256": "0201ffa8f65ac372a826bf4fcb33779de161ba2c747e130eab69dde7ec9ce6bc"
-    }
-  ]
+  "videos": []
 }

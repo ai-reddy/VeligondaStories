@@ -5,7 +5,9 @@
 `https://veligondastories.netlify.app` is the authoritative dynamic deployment.
 It owns the submission API, the latest-updates feed, and uploaded media.
 
-The GitHub Pages deployment is a static mirror under `/VeligondaStories`. Static
+The GitHub Pages deployment is a static mirror under `/VeligondaStories`. Its
+repository root uses a static landing redirect to `/te/`, because static
+exports cannot execute the server-side root redirect used by Netlify. Static
 exports cannot run POST route handlers, so its form sends submissions to the
 Netlify origin configured by `NEXT_PUBLIC_LIVE_ORIGIN`.
 
