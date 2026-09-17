@@ -22,9 +22,9 @@ export default async function GcGalleryPage({ params }: GcGalleryPageProps) {
   if (process.env.GITHUB_PAGES !== "true") await connection();
   const submissions = await getPublishedSubmissions("gundancharla");
   const copy = locale === "te" ? {
-    home: "హోమ్", all: "అన్ని మీడియా", documents: "పత్రాలు", eyebrow: "గ్రామ ఆర్కైవ్", title: "గుండంచర్ల గ్యాలరీ", intro: "గుండంచర్లకు కేటాయించిన అన్ని అందించిన చిత్రాలు, వీడియోలు మరియు వెంటనే ప్రచురించిన సామాజిక అప్‌డేట్‌లు.", photos: "గుండంచర్ల చిత్రాలు", videos: "గుండంచర్ల వీడియోలు", submit: "గుండంచర్ల అప్‌డేట్ సమర్పించండి",
+    home: "హోమ్", all: "అన్ని మీడియా", documents: "పత్రాలు", status: "ప్రస్తుత స్థితి", eyebrow: "గ్రామ ఆర్కైవ్", title: "గుండంచర్ల గ్యాలరీ", intro: "గుండంచర్లకు కేటాయించిన అన్ని అందించిన చిత్రాలు, వీడియోలు మరియు వెంటనే ప్రచురించిన సామాజిక అప్‌డేట్‌లు.", photos: "గుండంచర్ల చిత్రాలు", videos: "గుండంచర్ల వీడియోలు", submit: "గుండంచర్ల అప్‌డేట్ సమర్పించండి",
   } : {
-    home: "Home", all: "All media", documents: "Documents", eyebrow: "Village archive", title: "Gundancharla gallery", intro: "Every supplied image and video assigned to Gundancharla, together with immediately published community updates.", photos: "Gundancharla photographs", videos: "Gundancharla videos", submit: "Submit a Gundancharla update",
+    home: "Home", all: "All media", documents: "Documents", status: "Live status", eyebrow: "Village archive", title: "Gundancharla gallery", intro: "Every supplied image and video assigned to Gundancharla, together with immediately published community updates.", photos: "Gundancharla photographs", videos: "Gundancharla videos", submit: "Submit a Gundancharla update",
   };
 
   return (
@@ -32,7 +32,7 @@ export default async function GcGalleryPage({ params }: GcGalleryPageProps) {
       <SiteHeader locale={locale} />
       <main id="main-content">
         <header className="documentary-grid bg-earth text-white"><div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
-          <div className="flex flex-wrap gap-5 text-sm font-bold text-white/80"><Link href={`/${locale}`}>← {copy.home}</Link><Link href={`/${locale}/gallery`}>{copy.all}</Link><Link href={`/${locale}/evidence`}>{copy.documents}</Link></div>
+          <div className="flex flex-wrap gap-5 text-sm font-bold text-white/80"><Link href={`/${locale}`}>← {copy.home}</Link><Link href={`/${locale}/gallery`}>{copy.all}</Link><Link href={`/${locale}/gc-live-status`}>{copy.status}</Link><Link href={`/${locale}/evidence`}>{copy.documents}</Link></div>
           <p className="eyebrow mt-10 text-xs font-black text-white/65">{copy.eyebrow}</p>
           <h1 className="mt-4 text-4xl font-black sm:text-6xl">{copy.title}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/75">{copy.intro}</p>

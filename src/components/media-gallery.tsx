@@ -1,14 +1,17 @@
 import Image from "next/image";
 import generatedMedia from "../../content/generated-media.json";
+import verifiedMedia from "../../content/verified-media.json";
+import { InstagramEmbed } from "@/components/instagram-embed";
 import { PhotoLightbox } from "@/components/photo-lightbox";
 import type { Locale } from "@/lib/site-content";
 import type { PublishedSubmission } from "@/lib/submissions";
 import { publicAssetUrl } from "@/lib/public-url";
 
-export type PublicPhoto = (typeof generatedMedia.photos)[number];
+export type PublicPhoto = (typeof publicPhotos)[number];
 
-export const publicPhotos = generatedMedia.photos;
-export const publicVideos = generatedMedia.videos;
+export const verifiedVillagePhotos = verifiedMedia.photos;
+export const publicPhotos = [...verifiedVillagePhotos, ...generatedMedia.photos];
+export const publicVideos = [...verifiedMedia.videos, ...generatedMedia.videos];
 
 export function MediaGallery({ locale, limit }: { locale: Locale; limit?: number }) {
   const photos = typeof limit === "number" ? publicPhotos.slice(0, limit) : publicPhotos;
@@ -42,7 +45,7 @@ export function VideoGallery({ locale }: { locale: Locale }) {
 
 export function SubmissionUpdates({ locale, submissions }: { locale: Locale; submissions: PublishedSubmission[] }) {
   if (!submissions.length) return null;
-  const labels = locale === "te" ? { heading: "తాజా సామాజిక అప్‌డేట్‌లు", report: "సామాజిక నివేదిక", submitted: "సమర్పించిన తేదీ", event: "సంఘటన తేదీ" } : { heading: "Latest community updates", report: "Community report", submitted: "Submitted", event: "Event date" };
+  const labels = locale === "te" ? { heading: "తాజా సామాజిక అప్‌డేట్‌లు", report: "సామాజిక నివేదిక", submitted: "సమర్పించిన తేదీ", event: "సంఘటన తేదీ", source: "సోషల్ మీడియా మూలాన్ని తెరవండి" } : { heading: "Latest community updates", report: "Community report", submitted: "Submitted", event: "Event date", source: "Open social media source" };
 
   return (
     <section className="mb-16">
@@ -61,6 +64,13 @@ export function SubmissionUpdates({ locale, submissions }: { locale: Locale; sub
               <div className="flex flex-wrap gap-2 text-xs font-bold"><span className="rounded-full bg-gold/20 px-3 py-1">{labels.report}</span><span className="rounded-full bg-paper px-3 py-1">{submission.category}</span></div>
               <h3 className="mt-5 text-2xl font-black">{submission.title}</h3>
               <p className="mt-3 whitespace-pre-wrap leading-7 text-muted">{submission.content}</p>
+              {submission.socialLinks?.length ? <div className="mt-6 space-y-4">
+                {submission.socialLinks.map((url) => isInstagramUrl(url) ? (
+                  <InstagramEmbed key={url} url={url} />
+                ) : (
+                  <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="block break-all rounded-2xl border border-river/30 bg-paper p-4 text-sm font-bold text-river hover:border-river">{labels.source}: {url}</a>
+                ))}
+              </div> : null}
               <p className="mt-5 text-xs font-bold text-muted">{submission.eventDate ? `${labels.event}: ${submission.eventDate} · ` : ""}{labels.submitted}: {new Date(submission.submittedAt).toLocaleString(locale === "te" ? "te-IN" : "en-IN")}</p>
             </div>
           </article>
@@ -68,4 +78,8 @@ export function SubmissionUpdates({ locale, submissions }: { locale: Locale; sub
       </div>
     </section>
   );
+}
+
+function isInstagramUrl(url: string) {
+  return /^https:\/\/(?:www\.)?instagram\.com\/(?:reel|p)\//i.test(url);
 }

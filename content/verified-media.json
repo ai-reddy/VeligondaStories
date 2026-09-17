@@ -1,0 +1,68 @@
+{
+  "photos": [
+    {
+      "source": "User-supplied verified village image",
+      "slug": "gundancharla-reservoir-status-wide",
+      "stage": "current-status",
+      "village": "gundancharla",
+      "titleEn": "Reservoir water around the Gundancharla landscape",
+      "titleTe": "గుండంచర్ల పరిసరాల్లో జలాశయ నీరు",
+      "altEn": "Wide view of reservoir water, partly submerged vegetation, farmland and hills around Gundancharla",
+      "altTe": "గుండంచర్ల పరిసరాల్లో జలాశయ నీరు, పాక్షికంగా మునిగిన చెట్లు, పొలాలు మరియు కొండల విశాల దృశ్యం",
+      "verification": "field-verified",
+      "capturedAt": null,
+      "src": "/media/photos/gundancharla-reservoir-status-wide.webp",
+      "width": 1472,
+      "height": 1472,
+      "sourceSha256": "1b8fd188d9722ba8028b879390285ae34f3f17caec898a723c49f7bbb3888623"
+    },
+    {
+      "source": "User-supplied verified village image",
+      "slug": "gundancharla-inundated-road",
+      "stage": "current-status",
+      "village": "gundancharla",
+      "titleEn": "Village road covered by reservoir water",
+      "titleTe": "జలాశయ నీటిలో మునిగిన గ్రామ రహదారి",
+      "altEn": "A village road disappearing beneath reservoir water between trees and shrubs near Gundancharla",
+      "altTe": "గుండంచర్ల సమీపంలో చెట్లు, పొదల మధ్య జలాశయ నీటిలో మునిగిపోతున్న గ్రామ రహదారి",
+      "verification": "field-verified",
+      "capturedAt": null,
+      "src": "/media/photos/gundancharla-inundated-road.webp",
+      "width": 1472,
+      "height": 1472,
+      "sourceSha256": "bd24bbba67792f183b4a7a8a6400178aaf3af3fd9ac43b7dd65e16443d0149aa"
+    },
+    {
+      "source": "User-supplied verified village image",
+      "slug": "gundancharla-reservoir-status-shore",
+      "stage": "current-status",
+      "village": "gundancharla",
+      "titleEn": "Current reservoir shoreline near Gundancharla",
+      "titleTe": "గుండంచర్ల సమీపంలోని ప్రస్తుత జలాశయ తీరం",
+      "altEn": "Reservoir shoreline with submerged trees, brush and hills visible near Gundancharla",
+      "altTe": "గుండంచర్ల సమీపంలో నీటిలో మునిగిన చెట్లు, పొదలు మరియు కొండలతో కనిపిస్తున్న జలాశయ తీరం",
+      "verification": "field-verified",
+      "capturedAt": null,
+      "src": "/media/photos/gundancharla-reservoir-status-shore.webp",
+      "width": 1472,
+      "height": 1472,
+      "sourceSha256": "a4ff8fa41759e0a38028135755b13aac2a6f6744e161517c2b9634c52e9b9407"
+    }
+  ],
+  "videos": [
+    {
+      "source": "User-supplied village video",
+      "slug": "gundancharla-video-10",
+      "village": "gundancharla",
+      "titleEn": "Gundancharla current-status video",
+      "titleTe": "గుండంచర్ల ప్రస్తుత స్థితి వీడియో",
+      "descriptionEn": "User-supplied village video retained as a community report. Capture date and participant consent details remain pending confirmation.",
+      "descriptionTe": "వినియోగదారు అందించిన గ్రామ వీడియోను సామాజిక నివేదికగా భద్రపరిచాం. చిత్రీకరణ తేదీ మరియు పాల్గొన్న వారి సమ్మతి వివరాలు నిర్ధారణలో ఉన్నాయి.",
+      "verification": "community-report",
+      "capturedAt": null,
+      "src": "/media/videos/gundancharla-video-10.mp4",
+      "poster": "/media/videos/gundancharla-video-10-poster.webp",
+      "sourceSha256": "0201ffa8f65ac372a826bf4fcb33779de161ba2c747e130eab69dde7ec9ce6bc"
+    }
+  ]
+}

@@ -101,7 +101,7 @@ export const siteContent = {
     privacy: "Privacy",
     corrections: "Corrections",
     status: "Foundation preview",
-    instagram: "Watch on Instagram",
+    instagram: "Latest social media sources",
   },
   te: {
     skip: "ప్రధాన విషయానికి వెళ్లండి",
@@ -169,6 +169,6 @@ export const siteContent = {
     privacy: "గోప్యత",
     corrections: "సవరణలు",
     status: "ప్రాథమిక నమూనా",
-    instagram: "ఇన్‌స్టాగ్రామ్‌లో చూడండి",
+    instagram: "తాజా సోషల్ మీడియా మూలాలు",
   },
 } as const;

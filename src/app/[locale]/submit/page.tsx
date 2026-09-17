@@ -18,8 +18,8 @@ export default async function SubmitPage({ params }: SubmitPageProps) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const copy = locale === "te"
-    ? { home: "హోమ్", eyebrow: "సామాజిక సమర్పణ", title: "అప్‌డేట్ సమర్పించండి", intro: "వివరాలు తప్పనిసరి. ఫోటోలు, వీడియోలు ఐచ్చికం. గుండంచర్ల అప్‌డేట్‌లు ప్రచురించిన వెంటనే గుండంచర్ల గ్యాలరీలో కనిపిస్తాయి." }
-    : { home: "Home", eyebrow: "Community submission", title: "Submit an update", intro: "Written details are mandatory; photos and videos are optional. Gundancharla updates appear in the Gundancharla gallery immediately after publication." };
+    ? { home: "హోమ్", eyebrow: "సామాజిక సమర్పణ", title: "అప్‌డేట్ సమర్పించండి", intro: "వివరాలు తప్పనిసరి. ఫోటోలు, వీడియోలు మరియు పబ్లిక్ సోషల్ మీడియా లింకులు ఐచ్చికం. ప్రచురించిన అప్‌డేట్‌లు శాశ్వత ఆర్కైవ్‌లో భద్రపడి తాజా అప్‌డేట్‌ల పేజీలో కనిపిస్తాయి." }
+    : { home: "Home", eyebrow: "Community submission", title: "Submit an update", intro: "Written details are mandatory; photos, videos and public social media links are optional. Published updates are kept in persistent storage and appear on the latest-updates page." };
 
   return (
     <>

@@ -1,0 +1,1 @@
+export { default, generateMetadata } from "../gc-live-status/page";

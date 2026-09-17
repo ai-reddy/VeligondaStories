@@ -87,6 +87,10 @@
   ],
   "reviewGroups": [
     {
+      "reason": "Published verified Gundancharla drone view; capture date remains pending",
+      "files": ["videos/Gundamcharla Village drone view.mp4"]
+    },
+    {
       "reason": "Published as supplied; identifiable people or children still require consent/redaction confirmation",
       "files": ["photos/shared image (14).jfif", "photos/shared image (19).jfif", "photos/shared image (42).jfif", "photos/shared image (43).jfif", "photos/shared image (44).jfif", "videos/MicrosoftTeams-video (1).mp4", "videos/MicrosoftTeams-video (2).mp4", "videos/MicrosoftTeams-video (3).mp4", "videos/MicrosoftTeams-video (4).mp4", "videos/MicrosoftTeams-video (6).mp4", "videos/MicrosoftTeams-video (7).mp4", "videos/MicrosoftTeams-video.mp4"]
     },

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MediaGallery } from "@/components/media-gallery";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { liveUpdatesUrl } from "@/lib/public-url";
 import { isLocale, siteContent } from "@/lib/site-content";
 
 type LocalePageProps = {
@@ -77,6 +78,9 @@ export default async function LocaleHome({ params }: LocalePageProps) {
               </article>
             ))}
           </div>
+          <Link href={liveUpdatesUrl(locale)} className="mt-8 inline-flex rounded-full bg-earth px-5 py-3 font-black text-white transition hover:bg-ink">
+            {locale === "te" ? "అన్ని తాజా అప్‌డేట్‌లు చూడండి" : "View all latest updates"}
+          </Link>
         </section>
 
         <section id="project" className="bg-ink py-20 text-white">

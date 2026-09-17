@@ -8,6 +8,7 @@ import sharp from "sharp";
 const root = process.cwd();
 const manifestPath = path.join(root, "content", "media-manifest.json");
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+const verifiedMedia = JSON.parse(await readFile(path.join(root, "content", "verified-media.json"), "utf8"));
 const sourceRoot = path.join(root, manifest.policy.sourceDirectory);
 const publicRoot = path.join(root, manifest.policy.publicDirectory);
 const publicPhotosRoot = path.join(publicRoot, "photos");
@@ -15,11 +16,21 @@ const publicVideosRoot = path.join(publicRoot, "videos");
 const generatedPhotos = [];
 const generatedVideos = [];
 const curatedBySource = new Map(manifest.publicPhotos.map((photo) => [photo.source, photo]));
+const verifiedPhotoBytes = await Promise.all(verifiedMedia.photos.map(async (photo) => ({
+  outputPath: path.join(root, "public", photo.src),
+  bytes: await readFile(path.join(root, "public", photo.src)),
+})));
+const verifiedVideoFiles = await Promise.all(verifiedMedia.videos.flatMap((video) => [video.src, video.poster]).map(async (source) => ({
+  outputPath: path.join(root, "public", source),
+  bytes: await readFile(path.join(root, "public", source)),
+})));
 
 await rm(publicPhotosRoot, { recursive: true, force: true });
 await rm(publicVideosRoot, { recursive: true, force: true });
 await mkdir(publicPhotosRoot, { recursive: true });
 await mkdir(publicVideosRoot, { recursive: true });
+for (const photo of verifiedPhotoBytes) await writeFile(photo.outputPath, photo.bytes);
+for (const file of verifiedVideoFiles) await writeFile(file.outputPath, file.bytes);
 
 const photoNames = (await readdir(path.join(sourceRoot, "photos")))
   .filter((name) => /\.(jpe?g|jfif|png|webp)$/i.test(name))
