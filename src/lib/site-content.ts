@@ -34,19 +34,29 @@ function normalizeInstagramReels(urls: string[]) {
 }
 
 
-export const groundRealityVillages = [
-  {
-    nameEn: "Gundancharla",
-    nameTe: "గుండంచర్ల",
-    titleEn: "A community rebuilding itself",
-    titleTe: "తిరిగి తనను తాను నిర్మించుకుంటున్న సమాజం",
-    summaryEn: "Gundancharla is listed among the Veligonda Project submerged habitations. Community accounts describe unresolved questions around house sites, pattas, permanent housing, temporary accommodation and rebuilding a stable life while preserving the village identity.",
-    summaryTe: "గుండంచర్లను వెలిగొండ ప్రాజెక్టు ముంపు ఆవాసాల్లో ఒకటిగా అధికారిక జిల్లా జాబితాలో పేర్కొన్నారు. ప్రజల సమాచారంలో ఇంటి స్థలం, పట్టా, శాశ్వత ఇల్లు, తాత్కాలిక వసతి, స్థిరమైన జీవితం మరియు గ్రామ గుర్తింపును కాపాడుకోవడం వంటి ప్రశ్నలు ఇంకా ఉన్నాయి.",
+export const gundancharlaGroundReality = {
+    nameEn: "గుండంచర్ల | GUNDANCHARLA",
+    nameTe: "గుండంచర్ల | GUNDANCHARLA",
+    titleEn: "A village displaced — a community trying to rebuild.",
+    titleTe: "నిర్వాసితమైన గ్రామం — తిరిగి నిర్మించుకోవడానికి ప్రయత్నిస్తున్న సమాజం.",
+    summaryEn: "Compensation is only one step in the journey. The next challenge is rebuilding a stable place, patta, home, basic services, livelihoods and the village community. September 2026 reporting about pattas for Veligonda displaced families means Gundancharla should not be described with a blanket ‘no pattas’ statement; family-wise status needs to be tracked.",
+    summaryTe: "పరిహారం పొందడం ప్రయాణంలో ఒక దశ మాత్రమే. కొత్త స్థలం, పట్టా, ఇల్లు, మౌలిక వసతులు, జీవనోపాధి మరియు గ్రామ సమాజాన్ని తిరిగి నిర్మించుకోవడం తదుపరి సవాలు. 2026 సెప్టెంబర్‌లో ఇతర వెలిగొండ నిర్వాసితులకు పట్టాల పంపిణీ, వాటి కోసం వేచి ఉన్న కుటుంబాలపై వార్తలు వచ్చాయి. కాబట్టి గుండంచర్లకు మొత్తం మీద ‘పట్టాలు లేవు’ అనే blanket statement కాకుండా, కుటుంబాల వారీ స్థితిని ట్రాక్ చేయాలి.",
     quoteEn: "We lost the village; we should not lose the identity of Gundancharla.",
     quoteTe: "ఊరు కోల్పోయాం… కానీ గుండంచర్ల అనే గుర్తింపును కోల్పోకూడదు.",
-    sourceEn: "Official-list reference plus community-reported housing and rehabilitation concerns.",
-    sourceTe: "అధికారిక జాబితా ప్రస్తావన, ప్రజలు నివేదించిన ఇల్లు మరియు పునరావాస సమస్యలు.",
-  },
+    sourceEn: "Affected-village archive card combining source-linked reporting and community concerns; family-wise status requires verification.",
+    sourceTe: "మూలాలతో అనుసంధానించిన నివేదికలు, గ్రామంలో వ్యక్తమవుతున్న ఆందోళనల ఆధారంగా రూపొందించిన ప్రభావిత గ్రామ కార్డు; కుటుంబాల వారీ స్థితికి ధృవీకరణ అవసరం.",
+    trackerTitleEn: "Family-wise rehabilitation status tracker",
+    trackerTitleTe: "కుటుంబాల వారీ పునరావాస స్థితి ట్రాకర్",
+    trackerNoteEn: "Track each family separately: house site received, patta pending or issued, house completed, rental status, and unresolved R&R rights.",
+    trackerNoteTe: "ప్రతి కుటుంబానికి విడిగా నమోదు చేయాలి: స్థలం వచ్చిందా, పట్టా జారీ అయిందా లేదా పెండింగ్‌లో ఉందా, ఇల్లు పూర్తయ్యిందా, అద్దెలో ఉన్నారా, ఇంకా పరిష్కారం కావాల్సిన R&R హక్కులు ఏమిటి.",
+    realityTitleEn: "Gundancharla — Ground Reality",
+    realityTitleTe: "గుండంచర్ల — Ground Reality",
+    realityEn: "The main concern expressed by displaced residents is not compensation alone — it is clarity about when they will have a permanent place, patta and home for a new life. Reports from August 2026 described displaced residents approaching officials for clarity on house sites, pattas and rehabilitation as the village was being vacated. Pattas were later distributed in phases to different submerged villages.\n\nThe questions that need a family-level answer are: Who received a site? Whose patta is pending? Whose house is complete? Who is living in rented accommodation? Whose R&R rights still need resolution?\n\nAnother strong view in the village is that everyone should build a new Gundancharla together in one place. That requires trust, unity and calmly but continuously asking officials for answers.\n\nA new village is not only new plots. Patta + home + water + electricity + roads + livelihood + village relationships together make real rehabilitation. Gundancharla has lost the old village; how the new Gundancharla is built is the real story now.",
+    realityTe: "గుండంచర్లలో నిర్వాసితుల ప్రధాన ఆందోళన పరిహారం మాత్రమే కాదు — కొత్త జీవితానికి శాశ్వతమైన స్థలం, పట్టా, ఇల్లు ఎప్పుడు అనే స్పష్టత. గ్రామం ఖాళీ చేయాల్సిన సమయంలో ఇంటి స్థలాలు, పట్టాలు, పునరావాసంపై స్పష్టత కోసం నిర్వాసితులు అధికారులను సంప్రదించినట్లు ఆగస్టు 2026లో వార్తలు వచ్చాయి. తరువాత వివిధ ముంపు గ్రామాలకు దశలవారీగా పట్టాల పంపిణీ కూడా జరిగింది.\n\nఅయితే ఈ ప్రక్రియలో ఎవరికి స్థలం వచ్చింది? ఎవరి పట్టా పెండింగ్‌లో ఉంది? ఎవరి ఇల్లు పూర్తయింది? ఎవరు అద్దెలో ఉన్నారు? ఎవరి R&R హక్కులు ఇంకా పరిష్కారం కావాలి? అనే ప్రశ్నలు ప్రతి కుటుంబానికి స్పష్టంగా ఉండాల్సిన అవసరం ఉంది.\n\nగ్రామంలో మరో బలమైన అభిప్రాయం — అందరూ కలిసి ఒకే చోట కొత్త గుండంచర్లను నిర్మించుకోవాలి అనేది. దానికి అవసరమైనది పరస్పర నమ్మకం, ఐక్యత, మరియు అధికారులను ప్రశాంతంగా కానీ నిరంతరం ప్రశ్నించడం.\n\nకొత్త ఊరు అంటే కేవలం కొత్త ప్లాట్లు కాదు. పట్టా + ఇల్లు + నీరు + విద్యుత్ + రోడ్డు + జీవనోపాధి + మన గ్రామ బంధాలు — ఇవన్నీ కలిసే నిజమైన పునరావాసం. గుండంచర్ల పాత ఊరిని కోల్పోయింది. కొత్త గుండంచర్లను ఎలా నిర్మించుకుంటుందనేదే ఇప్పుడు అసలు కథ.",
+  } as const;
+
+export const groundRealityVillages = [
+  gundancharlaGroundReality,
   {
     nameEn: "Kalanuthala",
     nameTe: "కలనూతల",

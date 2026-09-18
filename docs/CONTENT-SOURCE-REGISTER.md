@@ -88,6 +88,10 @@ Do not publish the current candidate list as authoritative until reconciled agai
 - Consented family/community stories
 - Before/during/after media with capture dates and attribution
 
+### Published Gundancharla Ground Reality update
+
+The 17 September 2026 community update is published as a community concern, not as a blanket village-wide finding that pattas are unavailable. The website should track each family separately for house-site allocation, patta status, house completion, rental status, and unresolved R&R rights. The August 2026 reports about residents seeking clarity and later phased patta distribution are source-linked claims and require official, family-level reconciliation.
+
 ### Flagship Gundancharla collection
 
 Prioritize a complete source-backed package:

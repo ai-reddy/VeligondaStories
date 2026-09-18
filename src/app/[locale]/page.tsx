@@ -113,6 +113,16 @@ export default async function LocaleHome({ params }: LocalePageProps) {
                     <p className="mt-5 leading-7 text-muted">{locale === "te" ? village.summaryTe : village.summaryEn}</p>
                     <blockquote className="mt-6 border-l-4 border-gold pl-4 text-lg font-bold leading-8 text-ink">“{locale === "te" ? village.quoteTe : village.quoteEn}”</blockquote>
                     <p className="mt-6 border-t border-line pt-4 text-xs leading-5 text-muted"><strong className="text-ink">{locale === "te" ? "మూలం మరియు స్థితి: " : "Source and status: "}</strong>{locale === "te" ? village.sourceTe : village.sourceEn}</p>
+                    {"trackerTitleTe" in village ? <>
+                      <div className="mt-6 rounded-2xl border border-river/20 bg-river/5 p-5">
+                        <h4 className="font-black text-river-dark">{locale === "te" ? village.trackerTitleTe : village.trackerTitleEn}</h4>
+                        <p className="mt-2 text-sm leading-6 text-muted">{locale === "te" ? village.trackerNoteTe : village.trackerNoteEn}</p>
+                      </div>
+                      <div className="mt-6 border-t border-line pt-6">
+                        <h4 className="text-xl font-black">{locale === "te" ? village.realityTitleTe : village.realityTitleEn}</h4>
+                        <p className="mt-4 whitespace-pre-line leading-7 text-muted">{locale === "te" ? village.realityTe : village.realityEn}</p>
+                      </div>
+                    </> : null}
                   </div>
                 </article>
               ))}
